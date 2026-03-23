@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 let perent = React.createElement("div", { id: "perent" }, [
   React.createElement("div", { id: "child" }, [
     React.createElement("h1", {}, "i am h1 tag"),

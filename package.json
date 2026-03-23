@@ -1,0 +1,32 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "This is Namaste React Project By Manil Jotaniya",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menil-nxt/NamasteReact.git"
+  },
+  "keywords": [
+    "Namaste",
+    "React"
+  ],
+  "author": "Menil Jotaniya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/menil-nxt/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/menil-nxt/NamasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "browserslist":[
+    "last 2 version"
+  ]
+}
