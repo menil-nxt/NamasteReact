@@ -1,11 +1,154 @@
-div {
-    border:2px solid black;
-    margin:10px;
-    padding:10px;
-    background:deepskyblue;
-    text-align: center;
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#heading {
-    color:cornsilk;
+.logo{
+    width: 100px;
+    height: 100px;
+    padding-left: 20px;
+    filter: brightness(1.1) contrast(1.1);
+    mix-blend-mode: darken;
+}
+
+.nav-items ul{
+    display: flex;  
+    justify-content: flex-end;
+}
+
+li{
+    padding-right: 50px;
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.nav-items li:hover{
+    color: orangered;
+    transition: 0.7s;
+}
+
+/* Header */
+/* Search Bar */
+.search{
+    text-align: center;
+    margin-top: 20%;
+
+}
+
+.search .slogen{
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 50px;
+    margin-top: 8%;
+    color: white; /* Or any bright color */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* This makes it readable over videos! */
+}
+
+.search-input{
+    display: flex;
+    justify-content: center;
+    padding: 20px
+    
+}
+
+.search-input .search-bar{
+    border-radius: 20px;
+    border: 2px solid orangered;
+    width: 25rem;
+    height: 33px;
+    padding: 8px;
+    padding-left: 20px;
+    font-size: 18px;
+    outline: none;
+}
+
+
+.search-input .btn-search{
+    border-radius: 20px;
+    border-color: orangered;
+    color: white;
+    margin-left: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    background: orangered;
+}
+
+.explore{
+  font-family: "Permanent Marker", cursive;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  font-size: 50px;
+}
+
+
+
+/* res-cards */
+
+.res-card {
+    width: 200px;
+    height: 50%;
+    margin: 30px;
+    margin-bottom: 50px;
+    color: #010101;
+    background:#ffffff;
+    transition: 0.7s;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.res-card:hover{
+    transition: 0.7s 0.7;
+}
+
+.res-card h3{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 60px;
+    margin-top: 30%;
+}
+
+.res-card img{
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    height: 200px;
+    padding-top: 0;  
+}
+
+.res-card:hover{
+    transform: scale(0.9);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.card-rating{ 
+    margin-left: 15px;
+}
+
+.backgroung-img{
+    position: fixed;   /* Pins the image to the browser window */
+    top: 0;
+    left: 0;
+    width: 100vw;      /* Makes it span the full width of the viewport */
+    height: 100vh;     /* Makes it span the full height of the viewport */
+    object-fit: cover; /* Ensures the image covers the screen without stretching weirdly */
+    z-index: -1;       /* The magic trick: pushes it BEHIND all your other components */
+}
+
+h4{
+    margin-left: 15px;
 }
