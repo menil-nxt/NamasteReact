@@ -12,6 +12,7 @@
     padding-left: 20px;
     filter: brightness(1.1) contrast(1.1);
     mix-blend-mode: darken;
+    cursor: pointer;
 }
 
 .nav-items ul{
@@ -22,7 +23,7 @@
 li{
     padding-right: 50px;
     list-style-type: none;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .nav-items li:hover{
@@ -34,7 +35,7 @@ li{
 /* Search Bar */
 .search{
     text-align: center;
-    margin-top: 20%;
+    margin-top: 15%;
 
 }
 
@@ -52,21 +53,22 @@ li{
 .search-input{
     display: flex;
     justify-content: center;
-    padding: 20px
+    padding: 20px;
     
 }
 
 .search-input .search-bar{
     border-radius: 20px;
-    border: 2px solid orangered;
+    border: 4px solid orangered;
     width: 25rem;
     height: 33px;
     padding: 8px;
     padding-left: 20px;
     font-size: 18px;
     outline: none;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
 }
-
 
 .search-input .btn-search{
     border-radius: 20px;
@@ -85,6 +87,9 @@ li{
   font-weight: 600;
   font-style: normal;
   text-align: center;
+  margin-top: 30%;
+  color: rgba(86, 76, 69, 0.793);
+  margin-bottom: -28%;
   font-size: 50px;
 }
 
@@ -93,8 +98,7 @@ li{
 /* res-cards */
 
 .res-card {
-    width: 200px;
-    height: 50%;
+    width: 275px;
     margin: 30px;
     margin-bottom: 50px;
     color: #010101;
@@ -116,8 +120,9 @@ li{
 .res-container{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 60px;
+    margin-left: 30px;
     margin-top: 30%;
+    justify-content: center;
 }
 
 .res-card img{
@@ -152,3 +157,4 @@ li{
 h4{
     margin-left: 15px;
 }
+
