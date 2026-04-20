@@ -80,7 +80,22 @@ li{
     text-align: center;
     font-size: 1.1rem;
     background: orangered;
+    cursor: pointer;
 }
+
+.search-input .filter-btn{
+    border-radius: 20px;
+    border-color: orangered;
+    color: white;
+    margin-left: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    background: orangered;
+    cursor: pointer;
+}
+
 
 .explore{
   font-family: "Permanent Marker", cursive;
@@ -99,6 +114,7 @@ li{
 
 .res-card {
     width: 275px;
+    height: 450px;
     margin: 30px;
     margin-bottom: 50px;
     color: #010101;
@@ -109,7 +125,7 @@ li{
 }
 
 .res-card:hover{
-    transition: 0.7s 0.7;
+    transition: 0.7s 0.7s;
 }
 
 .res-card h3{
@@ -142,6 +158,20 @@ li{
 
 .card-rating{ 
     margin-left: 15px;
+}
+
+.res-card .get-items{
+    border-radius: 20px;
+    border-color: orangered;
+    color: white;
+    
+    margin-left: 90px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    background: orangered;
+    cursor: pointer;
 }
 
 .backgroung-img{
