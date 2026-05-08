@@ -18,6 +18,7 @@ const AppLayout = () => {
         <source src={BG_IMG} type="video/mp4" />
       </video>
       <Header />
+      {console.log("rerender page")}
       <Body />
     </div>
   );

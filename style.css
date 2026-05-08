@@ -20,6 +20,16 @@
     justify-content: flex-end;
 }
 
+.nav-items .login-btn{
+    border-radius: 10px;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    font-size: 20px;
+    padding: 0px 20px ;
+
+}
+
 li{
     padding-right: 50px;
     list-style-type: none;
@@ -35,7 +45,7 @@ li{
 /* Search Bar */
 .search{
     text-align: center;
-    margin-top: 15%;
+    margin-top: 13%;
 
 }
 
@@ -47,7 +57,7 @@ li{
     font-size: 50px;
     margin-top: 8%;
     color: white; /* Or any bright color */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* This makes it readable over videos! */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* This makes it readable over videos! */
 }
 
 .search-input{
@@ -67,7 +77,7 @@ li{
     font-size: 18px;
     outline: none;
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(216, 205, 205, 0.5);
 }
 
 .search-input .btn-search{
@@ -117,11 +127,12 @@ li{
     height: 450px;
     margin: 30px;
     margin-bottom: 50px;
-    color: #010101;
+    color: #000;
     background:#ffffff;
     transition: 0.7s;
     border: 1px solid gray;
     border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .res-card:hover{
@@ -150,8 +161,8 @@ li{
 }
 
 .res-card:hover{
-    transform: scale(0.9);
-    transition: transform 0.5s ease-in-out;
+    transform: scale(1.070);
+    transition: transform 0.5s ease-out;
     cursor: pointer;
     opacity: 1;
 }
@@ -165,9 +176,9 @@ li{
     border-color: orangered;
     color: white;
     
-    margin-left: 90px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: 10px;
+    padding: 5px 40px 5px 40px;
+    
     text-align: center;
     font-size: 1.1rem;
     background: orangered;
@@ -188,3 +199,45 @@ h4{
     margin-left: 15px;
 }
 
+/* Shimmer Design */
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50%;
+}
+
+.shimmer-card{
+    margin:70px;
+}
+
+.shimmer-img{
+    width: 190px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.4);;
+    border-radius: 10px;
+}
+
+.shimmer-resname{
+    margin-top: 20px;
+    width: 150px;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+}
+
+.shimmer-info{
+    margin-top: 10px;
+    width: 200px;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.4);;
+    border-radius: 20px;
+}
+
+.shimmer-order{
+    margin-top: 10px;
+    width:55px;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.4);;
+    border-radius: 20px;
+}

@@ -4,8 +4,8 @@
   "description": "This is Namaste React Project By Manil Jotaniya",
   "scripts": {
     "test": "jest",
-    "start" : "parcel index.html",    
-    "build" : "parcel build index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -25,10 +25,10 @@
     "parcel": "^2.16.4"
   },
   "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 version"
   ]
 }
