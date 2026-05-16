@@ -6,3 +6,6 @@ export const LOGO_URL =
 
 export const BG_IMG =
   "https://www.shutterstock.com/shutterstock/videos/3928547535/preview/stock-footage-mexican-pizza-on-plate-candlelit-restaurant-table-shallow-depth-of-field-slow-camera-pan.mp4";
+
+export const MENU_API =
+  "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.0240649&lng=72.60021069999999&restaurantId=";

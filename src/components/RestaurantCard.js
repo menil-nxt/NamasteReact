@@ -7,13 +7,13 @@ const RestaurantCard = (props) => {
   return (
     <div className="res-card">
       <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
-      <h3>{name}</h3>
+      <h3 className="res-card-details">{name}</h3>
 
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>⭐️ {avgRating}</h4>
-      <h4>{costForTwo}</h4>
+      <h4 className="res-card-details">{cuisines.join(", ")}</h4>
+      <h4 className="res-card-details">⭐️ {avgRating}</h4>
+      <h4 className="res-card-details">{costForTwo}</h4>
 
-      <button className="get-items">GET</button>
+      {/* <button className="get-items">GET</button> */}
     </div>
   );
 };
