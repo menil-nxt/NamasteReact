@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
+// import Grocery from "./components/Grocery";
 
 const heading = React.createElement("h1", { id: "heading" }, "Child");
 
@@ -16,6 +17,8 @@ const heading = React.createElement("h1", { id: "heading" }, "Child");
 
 // JSX(Babel teransplite it) -> React.createElement -> React.createElement(js Object) -> HTML element that browser can understand
 // Funcational Component
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   return (
@@ -49,6 +52,14 @@ const appRoutes = createBrowserRouter([
       {
         path: "/restaurants/:resID",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading.....</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

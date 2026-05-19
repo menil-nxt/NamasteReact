@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MenuShimmer from "./MenuShimmer";
 import { MENU_API } from "../utils/constants";
+// import useRastaurantMenu from "../utils/useRastaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setReaInfo] = useState(null);
+  const [resInfo, setResInfo] = useState(null);
   const [resMenu, setresMenu] = useState([]);
 
   const { resID } = useParams();
+  // const resInfo = useRastaurantMenu(resID);
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -54,7 +56,7 @@ const RestaurantMenu = () => {
         });
         setresMenu(organisedMenuData);
 
-        setReaInfo(
+        setResInfo(
           json?.data?.cards?.find((item) =>
             item?.card?.card?.["@type"]?.includes("food.v2.Restaurant"),
           )?.card?.card?.info,

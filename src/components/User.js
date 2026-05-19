@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const User = (props) => {
   const count = useState("1");
   const { name, location, contact } = props;
