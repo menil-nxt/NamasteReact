@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "opencode": "opencode-ai"
   },
   "@parcel/resolver-default": {
     "packageExports": true
@@ -25,9 +26,13 @@
   },
   "homepage": "https://github.com/menil-nxt/NamasteReact#readme",
   "devDependencies": {
-    "parcel": "^2.16.4"
+    "opencode-ai": "^1.15.10",
+    "parcel": "^2.16.4",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
     "lucide-react": "^1.14.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",

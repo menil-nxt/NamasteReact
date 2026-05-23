@@ -2,13 +2,20 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MenuShimmer from "./MenuShimmer";
 import { MENU_API } from "../utils/constants";
+import { useCart } from "../utils/CartContext";
 // import useRastaurantMenu from "../utils/useRastaurantMenu";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [resMenu, setresMenu] = useState([]);
+  const [toast, setToast] = useState("");
 
   const { resID } = useParams();
+
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(""), 2000);
+  };
   // const resInfo = useRastaurantMenu(resID);
 
   useEffect(() => {
@@ -73,13 +80,19 @@ const RestaurantMenu = () => {
 
   const { name, avgRating, locality, areaName, imageId } = resInfo;
   return (
-    <div className="menu">
-      <h1 className="Res-menu-name">{name}</h1>
-      <p>Rating : ⭐️ {avgRating}</p>
-      <p>Locality : {locality}</p>
-      <p>{areaName}</p>
-      <p></p>
-      <img src={imageId}></img>
+    <div className="bg-white/70 space-y-1 backdrop-blur-xs mx-40 my-20 rounded-4xl apple-system shadow-lg p-10 relative">
+      {toast && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-full shadow-lg text-sm font-semibold">
+          {toast}
+        </div>
+      )}
+      <h1 className="text-2xl font-bold p-10 ">{name}</h1>
+      <div className="pl-10 space-y-2 font-medium pb-10">
+        <p>Rating : ⭐️ {avgRating}</p>
+        <p>Locality : {locality}</p>
+        <p>{areaName}</p>
+        <p></p>
+      </div>
 
       {/* Restaurant menu category */}
       {resMenu?.map((category) =>
@@ -98,9 +111,11 @@ const ItemCategory = (props) => {
   const { title, itemCards } = props?.data;
 
   return (
-    <div>
-      <h2 className="header-title">{title}</h2>
-      <ul className="res-menu-list">
+    <div className="px-10 ">
+      <h2 className="pb-4 text-2xl border-2 pt-2 px-4 border-black rounded-2xl ">
+        {title}
+      </h2>
+      <ul className="py-15">
         {itemCards?.map((item) => (
           <MenuItem menuInfo={item?.card?.info} key={item?.card?.info?.id} />
         ))}
@@ -113,21 +128,50 @@ const NastedItemCategory = (props) => {
 };
 
 const MenuItem = (props) => {
-  const { name, price, defaultPrice, description, imageId } = props?.menuInfo;
+  const { name, price, defaultPrice, description, imageId, id } =
+    props?.menuInfo;
+  const { addToCart } = useCart();
+  const [msg, setMsg] = useState("");
   const RASTAURANT_MENU_IMG =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
+  const halfIdx = description ? Math.floor(description.length / 2) : 0;
+  const shortDesc = description ? description.slice(0, halfIdx) + "..." : "";
+
+  const handleAdd = () => {
+    addToCart({ id, name, price, defaultPrice, imageId });
+    setMsg("Item added to cart!");
+    setTimeout(() => setMsg(""), 2000);
+  };
+
   return (
-    <li className="list-items">
-      <div className="list-info">
-        <h5>{name}</h5>
+    <li className="px-7 flex justify-between mb-16 gap-10">
+      <div className="space-y-2 flex-1">
+        <h5 className="text-lg font-medium">{name}</h5>
         <p>{price && <span>Rs {(price / 100)?.toFixed(2)}</span>}</p>
-        <p>
-          {defaultPrice && <span>Rs {(defaultPrice / 100)?.toFixed(2)}</span>}
-        </p>
-        <p className="item-discription">{description}</p>
+        <p className="text-gray-500 text-sm">{shortDesc}</p>
       </div>
-      <div className="list-img">
-        {imageId && <img src={RASTAURANT_MENU_IMG + imageId}></img>}
+      <div className="flex flex-col items-center gap-3 w-[200px]">
+        <div className="w-[200px] h-[150px] rounded-2xl overflow-hidden flex-shrink-0">
+          {imageId && (
+            <img
+              src={RASTAURANT_MENU_IMG + imageId}
+              className="w-full h-full object-cover"
+            ></img>
+          )}
+        </div>
+        <div className="relative w-full">
+          <button
+            onClick={handleAdd}
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2.5 rounded-full transition-colors"
+          >
+            ADD TO CART
+          </button>
+          {msg && (
+            <p className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-green-600 font-medium">
+              {msg}
+            </p>
+          )}
+        </div>
       </div>
     </li>
   );

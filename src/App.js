@@ -6,29 +6,31 @@ import { BG_IMG } from "./utils/constants";
 import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
+import Login from "./components/Login";
+import Payment from "./components/Payment";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { CartProvider } from "./utils/CartContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
-// import Grocery from "./components/Grocery";
 
-const heading = React.createElement("h1", { id: "heading" }, "Child");
-
-// console.log(heading);
-
-// JSX(Babel teransplite it) -> React.createElement -> React.createElement(js Object) -> HTML element that browser can understand
-// Funcational Component
-
-const Grocery = lazy(() => import("./components/Grocery"));
+const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <video className="backgroung-img" autoPlay loop muted playsInline>
-        <source src={BG_IMG} type="video/mp4" />
-      </video>
-      <Header />
-      <Outlet />
-    </div>
+    <CartProvider>
+      <div className="app">
+        <video
+          className="fixed top-0 left-0 w-full h-full object-cover -z-10"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={BG_IMG} type="video/mp4" />
+        </video>
+        <Header />
+        <Outlet />
+      </div>
+    </CartProvider>
   );
 };
 
@@ -54,12 +56,20 @@ const appRoutes = createBrowserRouter([
         element: <RestaurantMenu />,
       },
       {
-        path: "/grocery",
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/cart",
         element: (
           <Suspense fallback={<h1>Loading.....</h1>}>
-            <Grocery />
+            <Cart />
           </Suspense>
         ),
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
     errorElement: <Error />,

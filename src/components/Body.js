@@ -51,11 +51,13 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="search">
-        <h1 className="slogen">Fast delivery, fresh flavors</h1>
-        <div className="search-input">
+      <div className="text-center mt-30%">
+        <h1 className="font-['Dancing_Script',_cursive] text-slate-800 font-stretch-80% antialiased text-5xl mt-60 ">
+          Fast delivery, fresh flavors
+        </h1>
+        <div className="mt-5">
           <input
-            className="search-bar"
+            className="bg-white/70 space-y-1 backdrop-blur-xs  border-2 border-orange-600 w-1/3 mx-auto mt-5 rounded-full items-center justify-center gap-2 p-2 focus:outline-none pl-5"
             type="text"
             placeholder="Search...."
             value={searchText}
@@ -65,7 +67,7 @@ const Body = () => {
           />
 
           <button
-            className="btn-search"
+            className="bg-orange-600 text-white px-4 py-2 rounded-full ml-2 "
             onClick={() => {
               console.log(searchText);
               // Filter the restaurant cards and Update the UI
@@ -79,7 +81,7 @@ const Body = () => {
             SEARCH
           </button>
           <button
-            className="filter-btn"
+            className="bg-orange-600 text-white px-4 py-2 rounded-full ml-2 "
             onClick={() => {
               const filteredTopRestaurant = listOfRestaurant.filter(
                 (res) => res.info.avgRating > 4.5,
@@ -92,8 +94,10 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <h2 className="explore">Bringing the restaurant home to you</h2>
-      <div className="res-container">
+      <h2 className="font-['Dancing_Script',cursive] text-center text-5xl mt-110 mb-5 text-slate-800">
+        Bringing the restaurant home to you
+      </h2>
+      <div className="flex flex-wrap gap-10 justify-center mb-20">
         {filteredRestaurant.map((restaurant) => (
           <Link
             className="no-underline text-black"
