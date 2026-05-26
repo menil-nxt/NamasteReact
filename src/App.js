@@ -11,6 +11,7 @@ import Payment from "./components/Payment";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { CartProvider } from "./utils/CartContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { ThemeProvider } from "./utils/ThemeContext";
 
 const Cart = lazy(() => import("./components/Cart"));
 

@@ -50,15 +50,15 @@ const Header = () => {
           </li>
           {btnName === "Login" ? (
             <Link to="/login">
-              <button className="hover:text-orange-600 font-stretch-200% w-25 border-2 border-orange-600 rounded-full">
+              <button
+                className="hover:text-orange-600 font-stretch-200% w-25 border-2 border-orange-600 rounded-full"
+                onClick={() => setBtnName("Logout")}
+              >
                 Login
               </button>
             </Link>
           ) : (
-            <button
-              className="hover:text-orange-600 font-stretch-200% w-25 border-2 border-orange-600 rounded-full"
-              onClick={() => setBtnName("Login")}
-            >
+            <button className="hover:text-orange-600 font-stretch-200% w-25 border-2 border-orange-600 rounded-full">
               Logout
             </button>
           )}
