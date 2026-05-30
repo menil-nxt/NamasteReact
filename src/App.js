@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Body from "./components/Body";
 import { BG_IMG } from "./utils/constants";
 import About from "./components/About";
@@ -10,28 +11,33 @@ import Login from "./components/Login";
 import Payment from "./components/Payment";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { CartProvider } from "./utils/CartContext";
+import ThemeContext from "./utils/ThemeContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { ThemeProvider } from "./utils/ThemeContext";
 
 const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
+  const [theme, setTheme] = useState("light");
+
   return (
-    <CartProvider>
-      <div className="app">
-        <video
-          className="fixed top-0 left-0 w-full h-full object-cover -z-10"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src={BG_IMG} type="video/mp4" />
-        </video>
-        <Header />
-        <Outlet />
-      </div>
-    </CartProvider>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <CartProvider>
+        <div className={`app ${theme}`}>
+          <video
+            className="fixed top-0 left-0 w-full h-full object-cover -z-10"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src={BG_IMG} type="video/mp4" />
+          </video>
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </CartProvider>
+    </ThemeContext.Provider>
   );
 };
 

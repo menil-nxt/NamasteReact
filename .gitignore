@@ -2,3 +2,6 @@
 /.parcel-cache
 /.cache
 /dist
+.env
+*.env
+.env.*
