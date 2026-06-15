@@ -354,9 +354,9 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-gray-800">Visit Us</h4>
                   <p className="text-gray-600">
-                    123 React Lane, Tech Park
+                    Bus-stand Road, Opp. Satyam Complex
                     <br />
-                    Bangalore, Karnataka - 560001
+                    Rajkot, Gujarat - 360004
                   </p>
                 </div>
               </div>
@@ -381,7 +381,7 @@ const Contact = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/menil-nxt"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Github"
@@ -390,7 +390,7 @@ const Contact = () => {
                   <GithubIcon size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/menil-jotaniya-490888375/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Linkedin"

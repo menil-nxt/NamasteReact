@@ -1,21 +1,20 @@
 import { useState } from "react";
 import { MenuItem } from "./MenuItem";
 
-export const ItemCategory = (props) => {
-  console.log(props);
-  const { title, itemCards } = props?.data;
+export const ItemCategory = ({ data, showItems, setShowIndex }) => {
+  // console.log(props);
+  const { title, itemCards } = data;
+  // const [showItems, setShowItems] = useState(null);
 
-  const [showItems, setShowItems] = useState(false);
-
-  const hendelClick = () => {
-    setShowItems(!showItems);
+  const hendleClick = () => {
+    setShowIndex();
   };
 
   return (
     <div className="px-10 ">
       <h2
         className="pb-2  text-2xl border-2 pt-4 px-4 border-black rounded-2xl flex justify-between cursor-pointer"
-        onClick={hendelClick}
+        onClick={hendleClick}
       >
         {title} - ({itemCards.length})
         <span className="ml-4 text-5xl font-extrabold text-gray-500 ">

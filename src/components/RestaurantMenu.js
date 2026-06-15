@@ -5,19 +5,18 @@ import { MENU_API } from "../utils/constants";
 import { useCart } from "../utils/CartContext";
 import { ItemCategory, NastedItemCategory } from "./ItemCategory";
 import { MenuItem } from "./MenuItem";
-// import useRastaurantMenu from "../utils/useRastaurantMenu";
+import useRastaurantMenu from "../utils/useRastaurantMenu";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [resMenu, setresMenu] = useState([]);
   const [toast, setToast] = useState("");
 
+  const [showIndex, setShowIndex] = useState(0);
   const { resID } = useParams();
 
-  const showToast = (msg) => {
-    setToast(msg);
-    setTimeout(() => setToast(""), 2000);
-  };
+  console.log(resID);
+
   // const resInfo = useRastaurantMenu(resID);
 
   useEffect(() => {
@@ -27,6 +26,7 @@ const RestaurantMenu = () => {
           MENU_API + resID + "&catalog_qa=undefined&submitAction=ENTER",
         );
         const json = await response.json();
+
         console.log(json);
         const menuData = json?.data?.cards
           ?.find((obj) => obj?.groupedCard)
@@ -78,6 +78,10 @@ const RestaurantMenu = () => {
     fetchMenu();
   }, []);
 
+  {
+    console.log(resInfo);
+  }
+
   if (resInfo === null) return <MenuShimmer />;
 
   const { name, avgRating, locality, areaName, imageId } = resInfo;
@@ -96,14 +100,26 @@ const RestaurantMenu = () => {
         <p></p>
       </div>
 
+      {/* {console.log(resMenu)} */}
+
       {/* Restaurant menu category */}
-      {resMenu?.map((category) =>
+      {resMenu?.map((category, index) =>
         category?.type === "item" ? (
-          <ItemCategory key={category?.title} data={category} />
+          <ItemCategory
+            key={category?.title}
+            data={category}
+            showItems={index === showIndex ? true : false}
+            setShowIndex={() => setShowIndex(index)}
+          />
         ) : (
-          <NastedItemCategory key={category?.title} data={category} />
+          <NastedItemCategory
+            key={category?.title}
+            data={category}
+            showItems={index === showIndex ? true : false}
+          />
         ),
       )}
+      {console.log(<ItemCategory />)}
     </div>
   );
 };
