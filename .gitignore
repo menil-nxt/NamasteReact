@@ -1,8 +1,12 @@
 /node_modules
 /.parcel-cache
-/.cache
+package.json
+/.env
 /dist
-.env
-*.env
-.env.*
-/Gemini.md
+package-lock.json
+bun.lock
+.gitignore
+.gemini/
+.opencode/
+/.namaste-dev.md
+GEMINI.md
