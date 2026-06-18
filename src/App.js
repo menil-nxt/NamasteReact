@@ -12,31 +12,60 @@ import Payment from "./components/Payment";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { CartProvider } from "./utils/CartContext";
 import ThemeContext from "./utils/ThemeContext";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  data,
+} from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "./utils/UserContext";
 
 const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
   const [theme, setTheme] = useState("light");
 
+  const [userInfo, setUserInfo] = useState();
+
+  // Authentication code
+  useEffect(() => {
+    // Authentivation code
+    // Make an API call and get user name and password
+    const data = {
+      name: "Menil Jotaniya",
+      Email: "menil@gemail.com",
+      contact: "8128153581",
+    };
+    setUserInfo(data);
+    console.log(data);
+  }, []);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <CartProvider>
-        <div className={`app ${theme}`}>
-          <video
-            className="fixed top-0 left-0 w-full h-full object-cover -z-10"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src={BG_IMG} type="video/mp4" />
-          </video>
-          <Header />
-          <Outlet />
-          <Footer />
-        </div>
-      </CartProvider>
+      <UserContext.Provider
+        value={{ 
+          loggedInUser: userInfo?.name, 
+          setUserInfo: (name) => setUserInfo(prev => ({ ...prev, name })) 
+        }} 
+      >
+        <CartProvider>
+          <div className={`app ${theme}`}>
+            <video
+              className="fixed top-0 left-0 w-full h-full object-cover -z-10"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={BG_IMG} type="video/mp4" />
+            </video>
+            <Header />
+            <Outlet />
+            <Footer />
+          </div>
+        </CartProvider>
+      </UserContext.Provider>
     </ThemeContext.Provider>
   );
 };

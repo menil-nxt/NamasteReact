@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatue from "../utils/useOnlineStatue";
 import { useCart } from "../utils/CartContext";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatue();
   const { totalItems } = useCart();
 
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser);
+
   useEffect(() => {
-    console.log("useEffect called when btnName is clicked");
+    // console.log("useEffect called when btnName is clicked");
   }, [btnName]);
   return (
     <div className="flex justify-between ">
@@ -62,6 +66,9 @@ const Header = () => {
               Logout
             </button>
           )}
+          <li className="hover:text-orange-600 font-stretch-200%">
+            {loggedInUser}
+          </li>
         </ul>
       </div>
     </div>

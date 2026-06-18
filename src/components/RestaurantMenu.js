@@ -15,8 +15,6 @@ const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
   const { resID } = useParams();
 
-  console.log(resID);
-
   // const resInfo = useRastaurantMenu(resID);
 
   useEffect(() => {
@@ -27,7 +25,6 @@ const RestaurantMenu = () => {
         );
         const json = await response.json();
 
-        console.log(json);
         const menuData = json?.data?.cards
           ?.find((obj) => obj?.groupedCard)
           ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
@@ -78,10 +75,6 @@ const RestaurantMenu = () => {
     fetchMenu();
   }, []);
 
-  {
-    console.log(resInfo);
-  }
-
   if (resInfo === null) return <MenuShimmer />;
 
   const { name, avgRating, locality, areaName, imageId } = resInfo;
@@ -119,7 +112,6 @@ const RestaurantMenu = () => {
           />
         ),
       )}
-      {console.log(<ItemCategory />)}
     </div>
   );
 };
