@@ -8,5 +8,4 @@ bun.lock
 .gitignore
 .gemini/
 .opencode/
-/.namaste-dev.md
 GEMINI.md
