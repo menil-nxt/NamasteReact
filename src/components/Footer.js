@@ -96,33 +96,33 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-20 bg-white/80 backdrop-blur-md border-t border-gray-100 pt-16 pb-8 px-4 dark:bg-gray-900/80 dark:border-gray-800 transition-colors">
+    <footer className="mt-20 bg-white/80 backdrop-blur-md border-t border-gray-100 pt-16 pb-8 px-4 transition-colors">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         {/* Brand Section */}
         <div className="space-y-6">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
             Namaste React
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm">
+          <p className="text-gray-600 leading-relaxed max-w-sm">
             Fast delivery, fresh flavors, and the best restaurants in town.
             We're on a mission to bring deliciousness to your doorstep.
           </p>
           <div className="flex gap-4">
             <a
               href="#"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-orange-500 hover:text-white transition-all dark:bg-gray-800 dark:text-gray-400"
+              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-orange-500 hover:text-white transition-all"
             >
               <GithubIcon size={18} />
             </a>
             <a
               href="#"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-orange-500 hover:text-white transition-all dark:bg-gray-800 dark:text-gray-400"
+              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-orange-500 hover:text-white transition-all"
             >
               <LinkedinIcon size={18} />
             </a>
             <a
               href="#"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-orange-500 hover:text-white transition-all dark:bg-gray-800 dark:text-gray-400"
+              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-orange-500 hover:text-white transition-all"
             >
               <TwitterIcon size={18} />
             </a>
@@ -131,14 +131,14 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-bold text-gray-800 dark:text-white mb-6 uppercase tracking-wider">
+          <h4 className="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wider">
             Quick Links
           </h4>
           <ul className="space-y-4">
             <li>
               <Link
                 to="/"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500 flex items-center gap-2 group"
+                className="text-gray-600 hover:text-orange-600 transition-colors flex items-center gap-2 group"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-400 group-hover:scale-150 transition-transform"></span>
                 Home
@@ -147,7 +147,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/about"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500 flex items-center gap-2 group"
+                className="text-gray-600 hover:text-orange-600 transition-colors flex items-center gap-2 group"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-400 group-hover:scale-150 transition-transform"></span>
                 About Us
@@ -156,19 +156,10 @@ const Footer = () => {
             <li>
               <Link
                 to="/contact"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500 flex items-center gap-2 group"
+                className="text-gray-600 hover:text-orange-600 transition-colors flex items-center gap-2 group"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-400 group-hover:scale-150 transition-transform"></span>
                 Contact Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/cart"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500 flex items-center gap-2 group"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-400 group-hover:scale-150 transition-transform"></span>
-                My Cart
               </Link>
             </li>
           </ul>
@@ -176,14 +167,14 @@ const Footer = () => {
 
         {/* Support */}
         <div>
-          <h4 className="text-lg font-bold text-gray-800 dark:text-white mb-6 uppercase tracking-wider">
+          <h4 className="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wider">
             Help & Support
           </h4>
           <ul className="space-y-4">
             <li>
               <a
                 href="#"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500"
+                className="text-gray-600 hover:text-orange-600 transition-colors"
               >
                 FAQs
               </a>
@@ -191,7 +182,7 @@ const Footer = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500"
+                className="text-gray-600 hover:text-orange-600 transition-colors"
               >
                 Terms & Conditions
               </a>
@@ -199,7 +190,7 @@ const Footer = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500"
+                className="text-gray-600 hover:text-orange-600 transition-colors"
               >
                 Privacy Policy
               </a>
@@ -207,7 +198,7 @@ const Footer = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-600 hover:text-orange-600 transition-colors dark:text-gray-400 dark:hover:text-orange-500"
+                className="text-gray-600 hover:text-orange-600 transition-colors"
               >
                 Refund Policy
               </a>
@@ -217,19 +208,19 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div>
-          <h4 className="text-lg font-bold text-gray-800 dark:text-white mb-6 uppercase tracking-wider">
+          <h4 className="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wider">
             Get in Touch
           </h4>
           <ul className="space-y-4">
-            <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+            <li className="flex items-start gap-3 text-gray-600">
               <Mail size={18} className="text-orange-500 shrink-0 mt-1" />
               <span>support@namastereact.com</span>
             </li>
-            <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+            <li className="flex items-start gap-3 text-gray-600">
               <Phone size={18} className="text-orange-500 shrink-0 mt-1" />
               <span>+91 81281 53581</span>
             </li>
-            <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+            <li className="flex items-start gap-3 text-gray-600">
               <MapPin size={18} className="text-orange-500 shrink-0 mt-1" />
               <span>123 React Lane, Tech Park, Bangalore</span>
             </li>
@@ -238,13 +229,13 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto border-t border-gray-100 pt-8 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+      <div className="max-w-7xl mx-auto border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-sm text-gray-500">
           © {currentYear} Namaste React. All rights reserved.
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+        <p className="text-sm text-gray-500 flex items-center gap-2">
           Made with <Heart size={16} className="text-red-500 fill-red-500" /> by{" "}
-          <span className="font-bold text-gray-800 dark:text-white">
+          <span className="font-bold text-gray-800">
             Manil Jotaniya
           </span>
         </p>

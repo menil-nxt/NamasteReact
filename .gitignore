@@ -8,4 +8,6 @@ bun.lock
 .gitignore
 .gemini/
 .opencode/
+
 GEMINI.md
+claude.md

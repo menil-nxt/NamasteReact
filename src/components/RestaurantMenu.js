@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MenuShimmer from "./MenuShimmer";
 import { MENU_API } from "../utils/constants";
-import { useCart } from "../utils/CartContext";
 import { ItemCategory, NastedItemCategory } from "./ItemCategory";
 import { MenuItem } from "./MenuItem";
 import useRastaurantMenu from "../utils/useRastaurantMenu";

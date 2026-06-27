@@ -100,7 +100,7 @@ const Body = () => {
         <label>Username : </label>
         <input
           className="border border-black p-1 rounded-lg font-bold"
-          value={loggedInUser || ""}
+          value={loggedInUser}
           onChange={(e) => setUserInfo(e.target.value)}
         />
       </div>

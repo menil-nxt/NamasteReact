@@ -2,13 +2,11 @@ import { useEffect, useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatue from "../utils/useOnlineStatue";
-import { useCart } from "../utils/CartContext";
 import UserContext from "../utils/UserContext";
 
 const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatue();
-  const { totalItems } = useCart();
 
   const { loggedInUser } = useContext(UserContext);
   console.log(loggedInUser);
@@ -40,16 +38,6 @@ const Header = () => {
           <li className="hover:text-orange-600 font-stretch-200%">
             <Link to="/contact" className="nav-link">
               Contact US
-            </Link>
-          </li>
-          <li className="hover:text-orange-600 font-stretch-200% relative">
-            <Link to="/cart" className="nav-link">
-              Cart
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-4 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
             </Link>
           </li>
           {btnName === "Login" ? (

@@ -8,10 +8,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
-import Payment from "./components/Payment";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { CartProvider } from "./utils/CartContext";
-import ThemeContext from "./utils/ThemeContext";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -20,12 +17,9 @@ import {
 } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import UserContext from "./utils/UserContext";
-
-const Cart = lazy(() => import("./components/Cart"));
+import { Provider } from "react-redux";
 
 const AppLayout = () => {
-  const [theme, setTheme] = useState("light");
-
   const [userInfo, setUserInfo] = useState();
 
   // Authentication code
@@ -42,31 +36,29 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <Provider store={appstore}>
       <UserContext.Provider
-        value={{ 
-          loggedInUser: userInfo?.name, 
-          setUserInfo: (name) => setUserInfo(prev => ({ ...prev, name })) 
-        }} 
+        value={{
+          loggedInUser: userInfo?.name,
+          setUserInfo: (name) => setUserInfo((prev) => ({ ...prev, name })),
+        }}
       >
-        <CartProvider>
-          <div className={`app ${theme}`}>
-            <video
-              className="fixed top-0 left-0 w-full h-full object-cover -z-10"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={BG_IMG} type="video/mp4" />
-            </video>
-            <Header />
-            <Outlet />
-            <Footer />
-          </div>
-        </CartProvider>
+        <div className="app light min-h-screen relative">
+          <video
+            className="fixed top-0 left-0 w-full h-full object-cover -z-10"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src={BG_IMG} type="video/mp4" />
+          </video>
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
       </UserContext.Provider>
-    </ThemeContext.Provider>
+    </Provider>
   );
 };
 
@@ -94,18 +86,6 @@ const appRoutes = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
-      },
-      {
-        path: "/cart",
-        element: (
-          <Suspense fallback={<h1>Loading.....</h1>}>
-            <Cart />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/payment",
-        element: <Payment />,
       },
     ],
     errorElement: <Error />,

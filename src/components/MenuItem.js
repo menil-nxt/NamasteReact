@@ -1,23 +1,25 @@
 import { useState } from "react";
-import { useCart } from "../utils/CartContext";
 
 export const MenuItem = (props) => {
   const { name, price, defaultPrice, description, imageId, id } =
     props?.menuInfo;
-  const { addToCart, cartItems, updateQuantity } = useCart();
+  
+  const [quantity, setQuantity] = useState(0);
   const [msg, setMsg] = useState("");
+
   const RASTAURANT_MENU_IMG =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
   const halfIdx = description ? Math.floor(description.length / 2) : 0;
   const shortDesc = description ? description.slice(0, halfIdx) + "..." : "";
 
-  const cartItem = cartItems.find((item) => item.id === id);
-  const quantity = cartItem ? cartItem.quantity : 0;
-
   const handleAdd = () => {
-    addToCart({ id, name, price, defaultPrice, imageId });
-    setMsg("Item added to cart!");
+    setQuantity(1);
+    setMsg("Item added!");
     setTimeout(() => setMsg(""), 2000);
+  };
+
+  const handleUpdate = (delta) => {
+    setQuantity((prev) => Math.max(0, prev + delta));
   };
 
   return (
@@ -51,14 +53,14 @@ export const MenuItem = (props) => {
           ) : (
             <div className="flex items-center justify-between w-full bg-white border border-orange-500 text-orange-500 font-bold py-1.5 rounded-xl shadow-md">
               <button
-                onClick={() => updateQuantity(id, -1)}
+                onClick={() => handleUpdate(-1)}
                 className="px-4 py-1 hover:bg-orange-50 transition-colors rounded-l-xl"
               >
                 −
               </button>
               <span className="text-sm">{quantity}</span>
               <button
-                onClick={() => updateQuantity(id, 1)}
+                onClick={() => handleUpdate(1)}
                 className="px-4 py-1 hover:bg-orange-50 transition-colors rounded-r-xl"
               >
                 +
