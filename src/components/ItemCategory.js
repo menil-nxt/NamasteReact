@@ -21,7 +21,6 @@ export const ItemCategory = ({ data, showItems, setShowIndex }) => {
           {showItems ? "˄" : "˅"}
         </span>
       </h2>
-
       <ul className="py-3">
         {itemCards?.map((item) => {
           return showItems ? (
@@ -29,9 +28,12 @@ export const ItemCategory = ({ data, showItems, setShowIndex }) => {
           ) : null;
         })}
       </ul>
+      ;
     </div>
   );
 };
+
+console.log(<ItemCategory />);
 export const NastedItemCategory = (props) => {
   return <div></div>;
 };

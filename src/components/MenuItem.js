@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItems, removeItems, clearCart } from "../utils/cartSlice";
 
 export const MenuItem = (props) => {
   const { name, price, defaultPrice, description, imageId, id } =
     props?.menuInfo;
-  
+
   const [quantity, setQuantity] = useState(0);
   const [msg, setMsg] = useState("");
 
@@ -12,15 +14,28 @@ export const MenuItem = (props) => {
   const halfIdx = description ? Math.floor(description.length / 2) : 0;
   const shortDesc = description ? description.slice(0, halfIdx) + "..." : "";
 
+  const dispatch = useDispatch();
+
   const handleAdd = () => {
-    setQuantity(1);
-    setMsg("Item added!");
-    setTimeout(() => setMsg(""), 2000);
+    // dispatch an action
+    // setQuantity(1);
+    // setMsg("Item added!");
+    // setTimeout(() => setMsg(""), 2000);
+    dispatch(addItems("gola"));
   };
 
-  const handleUpdate = (delta) => {
-    setQuantity((prev) => Math.max(0, prev + delta));
+  const handleRemove = () => {
+    dispatch(removeItems());
   };
+
+  const handleClear = () => {
+    // dispatch an action to clear the cart
+    dispatch(clearCart());
+  };
+
+  // const handleUpdate = (delta) => {
+  //   setQuantity((prev) => Math.max(0, prev + delta));
+  // };
 
   return (
     <li className="px-7 flex justify-between mb-10 gap-10 bg-amber-50 rounded-2xl shadow-2xl py-5 ">

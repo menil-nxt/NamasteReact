@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
-  name: "cart",
-  intiialState: {
-    items: [],
+  name: "cart", // name of slice
+  initialState: {
+    // initialState has object items -> items is initial empty array []
+    items: ["pizza", "Burger", "pasta", "Gola", "chai"],
   },
   reducers: {
     addItems: (state, action) => {
+      // Mutating state here
       state.items.push(action.payload);
     },
     removeItems: (state) => {
@@ -19,4 +21,5 @@ const cartSlice = createSlice({
 });
 
 export const { addItems, removeItems, clearCart } = cartSlice.actions;
+
 export default cartSlice.reducer;

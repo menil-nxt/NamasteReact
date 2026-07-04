@@ -18,6 +18,7 @@ import {
 import { useState, useEffect, useContext } from "react";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLayout = () => {
   const [userInfo, setUserInfo] = useState();
@@ -36,7 +37,7 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <Provider store={appstore}>
+    <Provider store={appStore}>
       <UserContext.Provider
         value={{
           loggedInUser: userInfo?.name,

@@ -3,6 +3,8 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatue from "../utils/useOnlineStatue";
 import UserContext from "../utils/UserContext";
+import { ShoppingCart } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   let [btnName, setBtnName] = useState("Login");
@@ -10,6 +12,10 @@ const Header = () => {
 
   const { loggedInUser } = useContext(UserContext);
   console.log(loggedInUser);
+
+  // subscribing to the store using selector
+  const cartItems = useSelector((store) => store.cart.items); // we can read this store anywhere in our appication using selector
+  console.log(cartItems);
 
   useEffect(() => {
     // console.log("useEffect called when btnName is clicked");
@@ -38,6 +44,12 @@ const Header = () => {
           <li className="hover:text-orange-600 font-stretch-200%">
             <Link to="/contact" className="nav-link">
               Contact US
+            </Link>
+          </li>
+          <li className="hover:text-orange-600 font-stretch-200%">
+            <Link className="nav-link flex items-center gap-2">
+              <ShoppingCart className="w-6 h-6" />
+              <span>({cartItems.length} items) </span>
             </Link>
           </li>
           {btnName === "Login" ? (
