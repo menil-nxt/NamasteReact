@@ -47,7 +47,7 @@ const Header = () => {
             </Link>
           </li>
           <li className="hover:text-orange-600 font-stretch-200%">
-            <Link className="nav-link flex items-center gap-2">
+            <Link to="/cart" className="nav-link flex items-center gap-2">
               <ShoppingCart className="w-6 h-6" />
               <span>({cartItems.length} items) </span>
             </Link>

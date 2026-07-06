@@ -28,7 +28,6 @@ export const ItemCategory = ({ data, showItems, setShowIndex }) => {
           ) : null;
         })}
       </ul>
-      ;
     </div>
   );
 };

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { addItems, removeItems, clearCart } from "../utils/cartSlice";
+import { ItemCategory } from "./ItemCategory";
 
 export const MenuItem = (props) => {
   const { name, price, defaultPrice, description, imageId, id } =
     props?.menuInfo;
+
+  // console.log("MenuItem props:", props);
 
   const [quantity, setQuantity] = useState(0);
   const [msg, setMsg] = useState("");
@@ -21,11 +25,11 @@ export const MenuItem = (props) => {
     // setQuantity(1);
     // setMsg("Item added!");
     // setTimeout(() => setMsg(""), 2000);
-    dispatch(addItems("gola"));
+    dispatch(addItems(props));
   };
 
   const handleRemove = () => {
-    dispatch(removeItems());
+    dispatch(removeItems(props));
   };
 
   const handleClear = () => {
@@ -60,7 +64,7 @@ export const MenuItem = (props) => {
         <div className="relative w-full">
           {quantity === 0 ? (
             <button
-              onClick={handleAdd}
+              onClick={() => handleAdd(props)}
               className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-all shadow-md active:scale-95"
             >
               ADD
@@ -68,14 +72,14 @@ export const MenuItem = (props) => {
           ) : (
             <div className="flex items-center justify-between w-full bg-white border border-orange-500 text-orange-500 font-bold py-1.5 rounded-xl shadow-md">
               <button
-                onClick={() => handleUpdate(-1)}
+                onClick={() => handleRemove(props)}
                 className="px-4 py-1 hover:bg-orange-50 transition-colors rounded-l-xl"
               >
                 −
               </button>
               <span className="text-sm">{quantity}</span>
               <button
-                onClick={() => handleUpdate(1)}
+                onClick={() => handleAdd(props)}
                 className="px-4 py-1 hover:bg-orange-50 transition-colors rounded-r-xl"
               >
                 +
