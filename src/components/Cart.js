@@ -2,7 +2,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.items);
+  // always subscribe smaller portion of the store - here we will only subscribe to the cart items instead of the whole store.
+  // it reduce unnecessary re-rendering of the component when other parts of the store change.
+  const cartItems = useSelector((store) => store.cart.items);
+
+  // i don't want to subscribe to my whole store - naver-ever do this(naver use )
+
+  // const store = useSelector((store) => store);
+  // const cartItems = store.cart.items;
+
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
