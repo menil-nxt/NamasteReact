@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
+import Body from "./Body";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  let navigate = useNavigate();
   // always subscribe smaller portion of the store - here we will only subscribe to the cart items instead of the whole store.
   // it reduce unnecessary re-rendering of the component when other parts of the store change.
   const cartItems = useSelector((store) => store.cart.items);
@@ -35,9 +38,19 @@ const Cart = () => {
           </h2>
 
           {cartItems.length === 0 ? (
-            <p className="text-gray-500 text-lg">
-              Your cart is empty. Add items to checkout!
-            </p>
+            <>
+              <p className="text-gray-500 text-lg">
+                Your cart is empty. Add items to checkout!
+              </p>
+              <button
+                className="bg-orange-500 text-white my-5 py-3 px-4 rounded-lg hover:bg-orange-600 transition-colors"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Explore Menu
+              </button>
+            </>
           ) : (
             <div className="w-full">
               <div className="grid grid-cols-12 border-b border-gray-200 pb-4 mb-4 text-sm text-gray-500 font-semibold">
