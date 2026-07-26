@@ -26,6 +26,12 @@
   },
   "homepage": "https://github.com/menil-nxt/NamasteReact#readme",
   "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@testing-library/react": "^16.3.2",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
     "opencode-ai": "^1.15.10",
     "parcel": "^2.16.4",
     "postcss": "^8.5.15",
@@ -37,11 +43,10 @@
     "@tailwindcss/postcss": "^4.3.0",
     "liquid-dom": "github:andrewPrifer/liquid-dom",
     "lucide-react": "^1.14.0",
-    "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-redux": "^9.3.0",
-    "react-router": "^7.15.0",
-    "react-router-dom": "^7.15.0"
+    "react-router": "^8.3.0",
+    "react-router-dom": "^7.11.0"
   },
   "browserslist": [
     "last 5 version"
