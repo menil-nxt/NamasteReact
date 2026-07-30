@@ -13,6 +13,9 @@
       <h3>Page is note Found !!!!!!!!</h3>
     </div>
 
-    <script type="module" src="src/App.js"></script>
+    <script>
+      window.process = { env: { NODE_ENV: 'development' } };
+    </script>
+    <script type="module" src="src/App.jsx"></script>
   </body>
 </html>

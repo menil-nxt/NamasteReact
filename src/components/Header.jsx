@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import useOnlineStatue from "../utils/useOnlineStatue";
 import UserContext from "../utils/UserContext";
 import { ShoppingCart } from "lucide-react";
@@ -24,7 +24,7 @@ const Header = () => {
     <div className="flex justify-between ">
       <div className="logo-container">
         <img
-          className="w-30 h-23 pl-10 rounded-sm brightness-100 contrast-more:100 mix-blend-darken "
+          className="w-30 h-20 pl-10 rounded-sm brightness-100 contrast-more:100 mix-blend-darken "
           src={LOGO_URL}
         />
       </div>

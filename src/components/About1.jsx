@@ -1,9 +1,9 @@
 import React from "react";
-import { href, Route } from "react-router";
+import { href, Route } from "react-router-dom";
 import Body from "./Body.js";
 import User from "./User.js";
 import UserClass from "./UserClass.js";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 class About extends React.Component {
   constructor(props) {

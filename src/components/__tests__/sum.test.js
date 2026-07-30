@@ -10,10 +10,21 @@ import { sub } from "../sub";
 test("sum function should be returned sum of two numbers", () => {
   const result = sum(4, 5);
 
-  //Assertion - what result should be that we write in the assertion
+  //Assertion - what result should be came fro this sum function that we write in the assertion
   expect(result).toBe(9);
 
   const result2 = sub(10, 5);
 
-  expect(result2).toBe(40);
+  expect(result2).toBe(5);
+});
+
+test("this is sum test case", () => {
+  const ans = sum(5, 7);
+
+  expect(ans).toBe(12);
+});
+
+test("sub function", () => {
+  const ans = sub(4, 1);
+  expect(ans).toBe(3);
 });
