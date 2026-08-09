@@ -55,7 +55,6 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="text-center mt-30%">
-        <h2 className="text-xl font-bold">Hello, {loggedInUser}!</h2>
         <h1 className="font-['Dancing_Script',_cursive] text-slate-800 font-stretch-80% antialiased text-5xl mt-60 ">
           Fast delivery, fresh flavors
         </h1>
@@ -96,14 +95,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="text-center mt-5">
-        <label>Username : </label>
-        <input
-          className="border border-black p-1 rounded-lg font-bold"
-          value={loggedInUser}
-          onChange={(e) => setUserInfo(e.target.value)}
-        />
-      </div>
+
       <h2 className="font-['Dancing_Script',cursive] text-center text-5xl mt-110 mb-5 text-slate-800">
         Bringing the restaurant home to you
       </h2>

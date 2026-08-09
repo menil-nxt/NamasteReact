@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Login = () => {
+  const { setUserInfo } = useContext(UserContext);
   const [isLogin, setIsLogin] = useState(true);
   const [showForgot, setShowForgot] = useState(false);
   const [msg, setMsg] = useState({ text: "", type: "" });
@@ -62,6 +64,7 @@ const Login = () => {
       return;
     }
     showMsg(`Welcome back, ${user.name}!`, "success");
+    setUserInfo({ name: user.name, email: user.email });
     setEmail("");
     setPassword("");
     setTimeout(() => navigate("/"), 1000);

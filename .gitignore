@@ -1,13 +1,14 @@
 /node_modules
 /.parcel-cache
+package.json
 /.env
 /dist
+package-lock.json
 bun.lock
+.gitignore
 .gemini/
 .opencode/
 
 GEMINI.md
 claude.md
 /coverage
-sum.test.js
-sub.test.js

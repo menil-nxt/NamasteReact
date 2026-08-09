@@ -7,19 +7,15 @@ import { ShoppingCart } from "lucide-react";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatue();
 
-  const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser, setUserInfo } = useContext(UserContext);
   console.log(loggedInUser);
 
   // subscribing to the store using selector
   const cartItems = useSelector((store) => store.cart.items); // we can read this store anywhere in our appication using selector
   console.log(cartItems);
 
-  useEffect(() => {
-    // console.log("useEffect called when btnName is clicked");
-  }, [btnName]);
   return (
     <div className="flex justify-between ">
       <div className="logo-container">
@@ -52,23 +48,29 @@ const Header = () => {
               <span>({cartItems.length} items) </span>
             </Link>
           </li>
-          {btnName === "Login" ? (
-            <Link to="/login">
-              <button
-                className="hover:text-orange-600 font-stretch-200% w-25 border-2 border-orange-600 rounded-full"
-                onClick={() => setBtnName("Logout")}
-              >
-                Login
-              </button>
-            </Link>
+          {!loggedInUser ? (
+            <li>
+              <Link to="/login">
+                <button className="hover:text-orange-600 px-2 border-2 border-orange-600 rounded-full">
+                  Login
+                </button>
+              </Link>
+            </li>
           ) : (
-            <button className="hover:text-orange-600 font-stretch-200% w-25 border-2 border-orange-600 rounded-full">
-              Logout
-            </button>
+            <>
+              <li>
+                <button 
+                  className="hover:text-orange-600 px-2 border-2 border-orange-600 rounded-full"
+                  onClick={() => setUserInfo(null)}
+                >
+                  Logout
+                </button>
+              </li>
+              <li className="hover:text-orange-600 font-stretch-200% font-bold flex items-center">
+                {loggedInUser?.name}
+              </li>
+            </>
           )}
-          <li className="hover:text-orange-600 font-stretch-200%">
-            {loggedInUser}
-          </li>
         </ul>
       </div>
     </div>

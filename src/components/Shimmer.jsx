@@ -9,7 +9,7 @@ const Shimmer = () => {
       </div>
 
       {/* Shimmer Search Bar & Buttons */}
-      <div className="animate-pulse flex flex-wrap items-center justify-center gap-4">
+      <div className="animate-pulse flex flex-wrap items-center justify-center gap-10">
         {/* Search Bar Input */}
         <div className="w-100 h-12 bg-gray-200 border-2 border-gray-300 rounded-full"></div>
 

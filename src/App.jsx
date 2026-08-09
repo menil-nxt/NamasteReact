@@ -24,25 +24,12 @@ import Cart from "./components/Cart";
 const AppLayout = () => {
   const [userInfo, setUserInfo] = useState();
 
-  // Authentication code
-  useEffect(() => {
-    // Authentivation code
-    // Make an API call and get user name and password
-    const data = {
-      name: "Menil Jotaniya",
-      Email: "menil@gemail.com",
-      contact: "8128153581",
-    };
-    setUserInfo(data);
-    console.log(data);
-  }, []);
-
   return (
     <Provider store={appStore}>
       <UserContext.Provider
         value={{
-          loggedInUser: userInfo?.name,
-          setUserInfo: (name) => setUserInfo((prev) => ({ ...prev, name })),
+          loggedInUser: userInfo,
+          setUserInfo,
         }}
       >
         <div className="app light min-h-screen relative">
