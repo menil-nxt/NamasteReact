@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const onlineStatus = useOnlineStatue();
 
+  const [click, setClick] = useState(false);
+
+
+
   const { loggedInUser, setUserInfo } = useContext(UserContext);
   console.log(loggedInUser);
 
@@ -73,7 +77,13 @@ const Header = () => {
           )}
         </ul>
       </div>
+      <button onClick={() => setClick(!click)}>
+        click
+        
+        </button>
+          {console.log(click)}
     </div>
+    
   );
 };
 
