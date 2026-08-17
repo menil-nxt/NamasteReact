@@ -77,11 +77,7 @@ const Header = () => {
           )}
         </ul>
       </div>
-      <button onClick={() => setClick(!click)}>
-        click
-        
-        </button>
-          {console.log(click)}
+      
     </div>
     
   );
