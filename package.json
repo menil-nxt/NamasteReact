@@ -4,6 +4,7 @@
   "description": "This is Namaste React Project By Manil Jotaniya",
   "scripts": {
     "test": "jest",
+    "watch-test": "jest --watch",
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "opencode": "opencode-ai"

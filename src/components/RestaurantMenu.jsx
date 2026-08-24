@@ -92,7 +92,7 @@ const RestaurantMenu = () => {
         <p></p>
       </div>
 
-      {/* {console.log(resMenu)} */}
+      {/* {console.log(resMenu)} }
 
       {/* Restaurant menu category */}
       {resMenu?.map((category, index) =>
@@ -114,4 +114,6 @@ const RestaurantMenu = () => {
     </div>
   );
 };
+
+
 export default RestaurantMenu;

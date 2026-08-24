@@ -2,7 +2,7 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  console.log(resData);
+  console.log(props);
   const { name, cuisines, avgRating, costForTwo, cloudinaryImageId } =
     resData?.info;
   return (
@@ -22,8 +22,9 @@ const RestaurantCard = (props) => {
         <h4 className="text-gray-700 text-sm ">{costForTwo}</h4>
       </div>
     </div>
-  );
+  )
 };
+
 
 // Higher Order Component
 export const withPromotedLabel = (RestaurantCard) => {
