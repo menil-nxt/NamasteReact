@@ -62,6 +62,7 @@ const Body = () => {
           <input
             className="bg-white/70 space-y-1 backdrop-blur-xs  border-2 border-orange-600 w-1/3 mx-auto mt-5 rounded-full items-center justify-center gap-2 p-2 focus:outline-none pl-5"
             type="text"
+            data-testid = 'searchInput'
             placeholder="Search...."
             value={searchText}
             onChange={(event) => {
