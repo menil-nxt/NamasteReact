@@ -21,53 +21,57 @@ global.fetch = jest.fn(() => {
 }); // in global.fetch my Body is rendered on global space.
 
 // fake API call we are fetching from fake fetch event.
-test("Should search res list for burger text input", async () => {
-  await act((async) => {
-    render(
-      <BrowserRouter>
-        <Body />
-      </BrowserRouter>,
-    );
-  });
-  const cardsBeforeSearch = screen.getAllByTestId("resCard");
 
-  expect(cardsBeforeSearch.length).toBe(8);
+describe("Cards render propary test-cases", () => {
+  test("Should search res list for burger text input", async () => {
+    await act((async) => {
+      render(
+        <BrowserRouter>
+          <Body />
+        </BrowserRouter>,
+      );
+    });
+    const cardsBeforeSearch = screen.getAllByTestId("resCard");
 
-  const searchBtn = screen.getByRole("button", { name: "SEARCH" });
+    expect(cardsBeforeSearch.length).toBe(8);
 
-  const searchInput = screen.getByPlaceholderText("Search....");
+    const searchBtn = screen.getByRole("button", { name: "SEARCH" });
 
-  fireEvent.change(searchInput, { target: { value: "burger" } }); // in search input targeted value = "pizza"
+    const searchInput = screen.getByPlaceholderText("Search....");
 
-  fireEvent.click(searchBtn);
+    fireEvent.change(searchInput, { target: { value: "burger" } }); // in search input targeted value = "pizza"
 
-  // onclick of search button screen should load 2 resCards
+    fireEvent.click(searchBtn);
 
-  const cards = screen.getAllByTestId("resCard");
+    // onclick of search button screen should load 2 resCards
 
-  // const searchInput2 = screen.getByTestId("searchInput");
-  expect(cards.length).toBe(2);
-});
+    const cards = screen.getAllByTestId("resCard");
 
-test("Should Top Restaurant button is working", async () => {
-  await act((async) => {
-    render(
-      <BrowserRouter>
-        <Body />
-      </BrowserRouter>,
-    );
-  });
-  const cardsBeforeSearch = screen.getAllByTestId("resCard");
-
-  expect(cardsBeforeSearch.length).toBe(8);
-
-  const topRatedRes = screen.getByRole("button", {
-    name: "Top Rated Restaurant",
+    // const searchInput2 = screen.getByTestId("searchInput");
+    expect(cards.length).toBe(3);
   });
 
-  fireEvent.click(topRatedRes);
+  test("should top rated restaurant future is working", async () => {
+    await act((async) => {
+      render(
+        <BrowserRouter>
+          <Body />
+        </BrowserRouter>,
+      );
+    });
 
-  const cards = screen.getAllByTestId("resCard");
+    const beforeTopRatedBtn = screen.getAllByTestId("resCard");
 
-  expect(cards.length).toBe(4);
+    expect(beforeTopRatedBtn.length).toBe(8);
+
+    const topResBtn = screen.getByRole("button", {
+      name: "Top Rated Restaurant",
+    });
+
+    fireEvent.click(topResBtn);
+
+    const rescards = screen.getAllByTestId("resCard");
+
+    expect(rescards.length).toBe(1);
+  });
 });

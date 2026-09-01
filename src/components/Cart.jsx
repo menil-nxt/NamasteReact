@@ -64,6 +64,7 @@ const Cart = () => {
                 return (
                   <div
                     key={info?.id + "-" + index}
+                    // data-testid = "items"       we have to only use this if we want to test cart.test.js - > test 5 
                     className="grid grid-cols-12 items-center border-b border-gray-100 py-6 text-sm"
                   >
                     <div className="col-span-2">

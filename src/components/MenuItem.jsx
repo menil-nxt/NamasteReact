@@ -43,7 +43,7 @@ export const MenuItem = (props) => {
 
   return (
     <li className="px-7 flex justify-between mb-10 gap-10 bg-amber-50 rounded-2xl shadow-2xl py-5 ">
-      <div className="space-y-2 flex-1 pt-9">
+      <div data-testid = "items"className="space-y-2 flex-1 pt-9">
         <h5 className="text-lg font-medium ">{name}</h5>
         <p>
           {(price || defaultPrice) && (

@@ -78,7 +78,7 @@ const RestaurantMenu = () => {
 
   const { name, avgRating, locality, areaName, imageId } = resInfo;
   return (
-    <div className="bg-white/70 space-y-1 backdrop-blur-xs mx-40 my-20 rounded-4xl apple-system shadow-lg p-10 relative">
+    <div data-testid = "resMenu" className="bg-white/70 space-y-1 backdrop-blur-xs mx-40 my-20 rounded-4xl apple-system shadow-lg p-10 relative">
       {toast && (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-full shadow-lg text-sm font-semibold">
           {toast}
